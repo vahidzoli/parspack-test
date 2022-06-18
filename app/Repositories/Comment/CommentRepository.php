@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Comment;
 
+use App\Exceptions\CommentLimitException;
 use App\Models\Comment;
 use App\Models\Product;
 use App\Models\User;
@@ -37,7 +38,7 @@ class CommentRepository implements CommentRepositoryInterface
         } else {
             if(!$this->userPolicy->userHasComment($user, $product)) {
 
-                throw new \Exception('Are u sure?');
+                throw new CommentLimitException();
             }        
         }
         

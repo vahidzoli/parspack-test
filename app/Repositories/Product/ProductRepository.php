@@ -13,7 +13,7 @@ class ProductRepository implements ProductRepositoryInterface
         $this->productModel = $product;
     }
 
-    public function create($request): Product
+    public function create($request)
     {
         return $this->productModel->create($request);
     }
@@ -23,7 +23,7 @@ class ProductRepository implements ProductRepositoryInterface
         return $this->productModel->with('comments')->get();
     }
 
-    public function getProductById($id): Product
+    public function getProductById($id)
     {
         return $this->productModel->with('comments')->findOrFail($id);
     }

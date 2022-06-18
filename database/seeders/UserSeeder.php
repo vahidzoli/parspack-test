@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
-use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class CommentSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +14,10 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        Comment::factory()->create();
+        User::create([
+            'name'  => 'parspack',
+            'email' => 'parspack@gmail.com',
+            'password' => bcrypt('parspack')
+        ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Events\CommentCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\CommentRequest;
 use App\Repositories\Comment\CommentRepositoryInterface;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 class CommentController extends Controller
@@ -20,7 +21,14 @@ class CommentController extends Controller
         $this->commentRepository = $comment;
     }
 
-    public function create(CommentRequest $request)
+    /**
+     * Create a comment.
+     *
+     * @param  CommentRequest  $request
+     * 
+     * @return json
+     */
+    public function create(CommentRequest $request): JsonResponse
     {
         $cmt = $this->commentRepository->create($request->all());
         $cmt = CommentDTO::make($cmt);
