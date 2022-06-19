@@ -16,7 +16,7 @@ Please consider the below points:
     <pre>
         <ul>
             <li> Use MySQL as database to store data</li>
-            <li> Create a folder in this path "/opt/myprogram/" </li>
+            <li><strong> Create a folder in this path "/opt/myprogram/"</strong></li>
             <li> Change the owner to www-data:www-data with chown </li>
         </ul>
     </pre>
@@ -25,13 +25,13 @@ Please consider the below points:
 
 in project directory :
 
-use cp .env.example .env,
+use `cp .env.example .env`,
 
-use composer install,
+then use ``composer install``,
 
-use php artisan key:generate,
+after that use `php artisan key:generate`,
 
-use php artisan migrate,
+then `use php artisan migrate`,
 
-at last use php artisan jwt:secret
+at last use `php artisan jwt:secret`
 
