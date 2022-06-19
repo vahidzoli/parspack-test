@@ -17,12 +17,12 @@ class UpdateCommentsCount implements ShouldQueue
      */
     public function handle(CommentCreated $event)
     {
-        $fp = fopen("/opt/myprogram/pc.txt", "a+");
+        $fp = fopen("/opt/myprogram/product_comments.txt", "a+");
     
         $name = $event->comment->product_name;
 
         if (flock($fp, LOCK_EX)) {
-            $contents = file_get_contents('/opt/myprogram/pc.txt');
+            $contents = file_get_contents('/opt/myprogram/product_comments.txt');
             $pattern = '/'.$name.':.*/';
 
             preg_match($pattern, $contents, $match);
@@ -30,7 +30,7 @@ class UpdateCommentsCount implements ShouldQueue
             if(count($match) > 0) {
                 $val = intval(explode(':', $match[0])[1]);
 
-                shell_exec("sed -i s/".$match[0]."/".$name.":" .($val + 1)."/g /opt/myprogram/pc.txt");
+                shell_exec("sed -i s/".$match[0]."/".$name.":" .($val + 1)."/g /opt/myprogram/product_comments.txt");
             } else {
                 fwrite($fp, "$name:1\r\n");
             }
