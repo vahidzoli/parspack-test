@@ -13,15 +13,15 @@ The project is a product review system with the following feature:
 6. Each user can register a maximum of 2 comments for each product
 
 Please consider the below points:
-    - Use MySQL as database to store data
-    - First, you have to create a folder in this path "/opt/myprogram/"
-    - Then, change the owner to www-data:www-data with chown
+    -  Use MySQL as database to store data
+    -  First, you have to create a folder in this path "/opt/myprogram/"
+    -  Then, change the owner to www-data:www-data with chown
 
-Installation
+## Installation
 
 in project directory :
 
-then use cp .env.example .env,
+use cp .env.example .env,
 
 use composer install,
 
